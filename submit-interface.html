@@ -9,9 +9,9 @@
     <script src="jquery-3.6.0.js"></script>
     <script src="jquery-ui/jquery-ui.js"></script>
     <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
-   
+
     <style>
-         .circle {
+        .circle {
             border-radius: 50%;
             width: 150px;
             height: 150px;
@@ -36,8 +36,9 @@
             left: 1220px;
             position: relative;
             top: 1070px;
-           
+
         }
+
         #circle-yellow {
             background-color: yellow;
             position: relative;
@@ -79,7 +80,7 @@
         #form {
             margin-bottom: 5px;
             color: white;
-            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 25px;
         }
 
@@ -87,17 +88,19 @@
             width: 200px;
             height: 50px;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            color: rgb(182, 240, 228) ;
+            color: rgb(182, 240, 228);
             font-size: 30px;
         }
-        #errorMessage{
+
+        #errorMessage {
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 20px;
             color: red;
             margin-top: 10px;
-        
+
         }
-        #welcomeMessage{
+
+        #welcomeMessage {
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 80px;
             color: skyblue;
@@ -116,7 +119,7 @@
     <div id="circle-yellow" class="circle"></div>
 
     <div id="cont">
-        
+
         <div id="form">
 
             <label for="email">Email</label>
@@ -154,59 +157,59 @@
             var errorMessage = "";
             var fieldMissing = "";
             var welcomeMessage = "";
-          //Segnala un messaggio quando i campi input sono vuoti
+            //Segnala un messaggio quando i campi input sono vuoti
 
-          if ($("#email").val() == ""){ 
-             fieldMissing += "<br>Email";
-          }
-          if ($("#telephone").val() == ""){ 
-             fieldMissing += "<br>Phone";
-          }
-          if ($("#password").val() == ""){ 
-             fieldMissing += "<br>Password";
-          }
-          if ($("#confirmPassword").val() == ""){ 
-             fieldMissing += "<br>Confirm Password ";
-          }
-          if (fieldMissing != "") {
-            errorMessage += "The following field(s) are missing :(" + fieldMissing;
-          }
-          
-          
-          //Segnala errore se i valori non rientrano in quelli possibili
-          //Per il telefono deve essere un valore numerico
-          //La password e la confirmPassword devono avere lo stesso valore 
-            if (isEmail($("#email").val()) == false){ 
-            errorMessage += "<p>Your email address is not valid</p>";
+            if ($("#email").val() == "") {
+                fieldMissing += "<br>Email";
+            }
+            if ($("#telephone").val() == "") {
+                fieldMissing += "<br>Phone";
+            }
+            if ($("#password").val() == "") {
+                fieldMissing += "<br>Password";
+            }
+            if ($("#confirmPassword").val() == "") {
+                fieldMissing += "<br>Confirm Password ";
+            }
+            if (fieldMissing != "") {
+                errorMessage += "The following field(s) are missing :(" + fieldMissing;
+            }
 
-           }
-           if ($.isNumeric($("#telephone").val()) == false){ 
-            errorMessage += "<p>Your phone number is not valid</p>";
-          
-           }
-           if ($("#password").val() !=  $("#confirmPassword").val()){ 
-            errorMessage += "<p>Your passwords don't match</p>";
-          
-           }
 
-          
-            if (errorMessage != ""){
-            $("#errorMessage").html(errorMessage);
-           } else {
-            $("#welcomeMessage").show();
-            $("#errorMessage").hide();
-            $("#circle-blue").animate({ top: "450px" });
-            $("#circle-red").animate({ top: "450px" }, 1000);
-            $("#circle-green").animate({ marginRight: "600px"  }, 1000);
-            $("#circle-yellow").animate({ marginLeft: "680px" }, 1000);
-          
-        
-        }
-           
-            
-    });
+            //Segnala errore se i valori non rientrano in quelli possibili
+            //Per il telefono deve essere un valore numerico
+            //La password e la confirmPassword devono avere lo stesso valore 
+            if (isEmail($("#email").val()) == false) {
+                errorMessage += "<p>Your email address is not valid</p>";
 
-   
+            }
+            if ($.isNumeric($("#telephone").val()) == false) {
+                errorMessage += "<p>Your phone number is not valid</p>";
+
+            }
+            if ($("#password").val() != $("#confirmPassword").val()) {
+                errorMessage += "<p>Your passwords don't match</p>";
+
+            }
+
+
+            if (errorMessage != "") {
+                $("#errorMessage").html(errorMessage);
+            } else {
+                $("#welcomeMessage").show();
+                $("#errorMessage").hide();
+                $("#circle-blue").animate({ top: "450px" });
+                $("#circle-red").animate({ top: "450px" }, 1000);
+                $("#circle-green").animate({ marginRight: "600px" }, 1000);
+                $("#circle-yellow").animate({ marginLeft: "680px" }, 1000);
+
+
+            }
+
+
+        });
+
+
 
     </script>
 </body>
